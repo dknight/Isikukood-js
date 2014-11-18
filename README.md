@@ -2,10 +2,13 @@
 
 ## Usage
 Include JS file into your HTML.
-<pre>&lt;script src="Isikukood.js">&lt;/script></pre>
+```html
+<script src="Isikukood.js"></script>
+```
 
 Usage example.
-<pre>// Validation
+```javascript
+// Validation
 var ik = new Isikukood('47502124911');
 var isValid = ik.validate(); // true is valid, false isn't valid
 var sex = ik.getGender(); // "male" pr "female"
@@ -20,7 +23,7 @@ var maleIk = Isikukood.generate({
   birthMonth: 3
   birthYear: 1984
 });
-</pre>
+```
 
 ## API
 <table class="table1">
