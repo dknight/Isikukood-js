@@ -158,23 +158,23 @@ Isikukood.generate = function (params) {
         gender = params.gender || ((Math.round(Math.random()) == 0 ) ? "male" : "female"),
         personalId = "",
 
-    // Places of brith (Estonian Hospitals)
+      // Places of brith (Estonian Hospitals)
         hospitals = [
-            "00", // Kuressaare Haigla (jÃ¤rjekorranumbrid 001 kuni 020)
-            "01", // Tartu Ãœlikooli Naistekliinik, Tartumaa, Tartu (011...019)
+            "00", // Kuressaare Haigla (järjekorranumbrid 001 kuni 020)
+            "01", // Tartu Ülikooli Naistekliinik, Tartumaa, Tartu (011...019)
             "02", // Ida-Tallinna Keskhaigla, Hiiumaa, Keila, Rapla haigla (021...220)
-            "22", // Ida-Viru Keskhaigla (Kohtla-JÃ¤rve, endine JÃµhvi) (221...270)
-            "27", // MaarjamÃµisa Kliinikum (Tartu), JÃµgeva Haigla (271...370)
+            "22", // Ida-Viru Keskhaigla (Kohtla-Järve, endine Jõhvi) (221...270)
+            "27", // Maarjamõisa Kliinikum (Tartu), Jõgeva Haigla (271...370)
             "37", // Narva Haigla (371...420)
-            "42", // PÃ¤rnu Haigla (421...470)
-            "47", // Pelgulinna SÃ¼nnitusmaja (Tallinn), Haapsalu haigla (471...490)
-            "49", // JÃ¤rvamaa Haigla (Paide) (491...520)
+            "42", // Pärnu Haigla (421...470)
+            "47", // Pelgulinna Sünnitusmaja (Tallinn), Haapsalu haigla (471...490)
+            "49", // Järvamaa Haigla (Paide) (491...520)
             "52", // Rakvere, Tapa haigla (521...570)
             "57", // Valga Haigla (571...600)
             "60", // Viljandi Haigla (601...650)
-            "65", // LÃµuna-Eesti Haigla (VÃµru), PÃµlva Haigla (651...710?)
+            "65", // Lõuna-Eesti Haigla (Võru), Pälva Haigla (651...710?)
             "70", // All other hospitals
-            "95" // Foreigners who are born in Estonia
+            "95"  // Foreigners who are born in Estonia
         ];
 
     if (!(gender == "female" || gender == "male")) {
