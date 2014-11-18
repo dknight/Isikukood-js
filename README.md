@@ -1,9 +1,11 @@
 # Estonian personal ID (isikukood) JavaScript class
 
 ## Usage
-<code><pre>&lt;script src="Isikukood.js">&lt;/script></pre></code>
+Include JS file into your HTML.
+<pre>&lt;script src="Isikukood.js">&lt;/script></pre>
 
-<code><pre>// Validation
+Usage example.
+<pre>// Validation
 var ik = new Isikukood('47502124911');
 var isValid = ik.validate(); // true is valid, false isn't valid
 var sex = ik.getGender(); // "male" pr "female"
@@ -21,10 +23,9 @@ var maleIk = Isikukood.generate({
   birthMonth: 3
   birthYear: 1984
 });
-</pre></code>
+</pre>
 
 ## API
-<h2>API</h2>
 <table class="table1">
   <tr>
     <th>Method</th>
