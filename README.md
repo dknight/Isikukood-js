@@ -11,11 +11,8 @@ var isValid = ik.validate(); // true is valid, false isn't valid
 var sex = ik.getGender(); // "male" pr "female"
 var age = ik.getAge(); // person's age
 var birthday = ik.getBirthday(); // person's birthday
-
 // Generation
-
 var validIk = Isikukood.generate(); // "49002124277"
-
 // Generate with parameters
 var maleIk = Isikukood.generate({
   gender: "male",
