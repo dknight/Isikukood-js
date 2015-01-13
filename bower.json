@@ -1,0 +1,21 @@
+{
+  "name": "isikukood",
+  "version": "1.0.0",
+  "homepage": "http://www.whoop.ee/posts/2014-02-17-isikukoodi-valideerimine-ja-genereerimine-javascript-iga/",
+  "authors": [
+    "dknight <smirnov.dmitri@gmail.com>"
+  ],
+  "description": "Validation and generation of Estonian personal ID.",
+  "main": "isikukood.js",
+  "moduleType": [
+    "es6"
+  ],
+  "keywords": [
+    "isikukood",
+    "estonia",
+    "eesti",
+    "personal",
+    "id"
+  ],
+  "license": "MIT"
+}
