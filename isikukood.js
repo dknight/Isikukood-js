@@ -123,7 +123,7 @@ function Isikukood(code) {
   this.getBirthday = function () {
     var year = parseInt(this.code.substring(1, 3)),
       month = parseInt(this.code.substring(3, 5).replace(/^0/, '')) - 1,
-      day = this.code.substring(5, 6).replace(/^0/, ""),
+      day = this.code.substring(5, 7).replace(/^0/, ""),
       firstNumber = this.code.charAt(0);
 
     if (firstNumber == "1" || firstNumber == "2") {
