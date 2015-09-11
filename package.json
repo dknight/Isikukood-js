@@ -1,0 +1,28 @@
+{
+  "name": "isikukood",
+  "version": "1.0.2",
+  "description": "Estonian personal ID (isikukood) JavaScript class",
+  "main": "isikukood.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/jasmine-node.cmd test/spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dknight/Isikukood-js.git"
+  },
+  "keywords": [
+    "isikukood"
+  ],
+  "author": "Dmitri Smirnov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dknight/Isikukood-js/issues"
+  },
+  "homepage": "https://github.com/dknight/Isikukood-js#readme",
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  }
+}

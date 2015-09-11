@@ -1,3 +1,7 @@
+if (typeof Isikukood == 'undefined' && typeof require == 'function') {
+  Isikukood = require('../../isikukood');
+}
+
 /**
  *  Isikukood test suite.
  *
