@@ -1,7 +1,7 @@
 {
   "name": "isikukood",
   "version": "1.0.2",
-  "description": "Estonian personal ID (isikukood) JavaScript class",
+  "description": "Estonian personal ID (isikukood) JavaScript module",
   "main": "isikukood.js",
   "directories": {
     "test": "test"
@@ -21,8 +21,11 @@
   "bugs": {
     "url": "https://github.com/dknight/Isikukood-js/issues"
   },
-  "homepage": "https://github.com/dknight/Isikukood-js#readme",
+  "homepage": "http://www.whoop.ee/posts/2014/02/17/validation-and-generation-of-estonian-personal-id.html",
   "devDependencies": {
-    "jasmine-node": "^1.14.5"
+    "jasmine-node": "^1.14.5",
+    "grunt": "*",
+    "grunt-contrib-uglify": ">= 0.11.0",
+    "grunt-contrib-jshint": ">= 0.11.3"
   }
 }

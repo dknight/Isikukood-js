@@ -9,11 +9,11 @@
    *  Estonian: http://www.whoop.ee/posts/2014-02-17-isikukoodi-valideerimine-ja-genereerimine-javascript-iga/
    *
    * @author Dmitri Smirnov
-   * @copyright 2014
+   * @copyright 2014-2015
    *
    * The MIT License (MIT)
    *
-   * Copyright (c) 2014 Dmitri Smirnov
+   * Copyright (c) 2014-2015 Dmitri Smirnov
    *
    * Permission is hereby granted, free of charge, to any person obtaining a copy
    * of this software and associated documentation files (the "Software"), to deal
@@ -36,7 +36,7 @@
    */
   function Isikukood(code) {
 
-    "use strict";
+    'use strict';
 
     this.code = code;
 
@@ -79,7 +79,7 @@
         return false;
       }
       var control = this.getControlNumber(code);
-      return control == this.code.charAt(10);
+      return control === parseInt(this.code.charAt(10));
     };
 
     /**
@@ -89,20 +89,20 @@
      */
     this.getGender = function () {
       var firstNumber = this.code.charAt(0),
-        retval = "";
+        retval = '';
       switch (firstNumber) {
-        case "1":
-        case "3":
-        case "5":
-          retval = "male";
+        case '1':
+        case '3':
+        case '5':
+          retval = 'male';
           break;
-        case "2":
-        case "4":
-        case "6":
-          retval = "female";
+        case '2':
+        case '4':
+        case '6':
+          retval = 'female';
           break;
         default:
-          retval = "unknown";
+          retval = 'unknown';
       }
       return retval;
     };
@@ -124,14 +124,14 @@
     this.getBirthday = function () {
       var year = parseInt(this.code.substring(1, 3)),
         month = parseInt(this.code.substring(3, 5).replace(/^0/, '')) - 1,
-        day = this.code.substring(5, 7).replace(/^0/, ""),
+        day = this.code.substring(5, 7).replace(/^0/, ''),
         firstNumber = this.code.charAt(0);
 
-      if (firstNumber == "1" || firstNumber == "2") {
+      if (firstNumber === '1' || firstNumber === '2') {
         year += 1800;
-      } else if (firstNumber == "3" || firstNumber == "4") {
+      } else if (firstNumber === '3' || firstNumber === '4') {
         year += 1900;
-      } else if (firstNumber == "5" || firstNumber == "6") {
+      } else if (firstNumber === '5' || firstNumber === '6') {
         year += 2000;
       } else {
         year += 2100;
@@ -151,35 +151,35 @@
    */
   Isikukood.generate = function (params) {
 
-    "use strict";
+    'use strict';
 
     params = params || {};
 
     var y, m, d,
-      gender = params.gender || ((Math.round(Math.random()) == 0 ) ? "male" : "female"),
-      personalId = "",
+      gender = params.gender || ((Math.round(Math.random()) === 0 ) ? 'male' : 'female'),
+      personalId = '',
 
     // Places of brith (Estonian Hospitals)
       hospitals = [
-        "00", // Kuressaare Haigla (järjekorranumbrid 001 kuni 020)
-        "01", // Tartu Ülikooli Naistekliinik, Tartumaa, Tartu (011...019)
-        "02", // Ida-Tallinna Keskhaigla, Hiiumaa, Keila, Rapla haigla (021...220)
-        "22", // Ida-Viru Keskhaigla (Kohtla-Järve, endine Jõhvi) (221...270)
-        "27", // Maarjamõisa Kliinikum (Tartu), Jõgeva Haigla (271...370)
-        "37", // Narva Haigla (371...420)
-        "42", // Pärnu Haigla (421...470)
-        "47", // Pelgulinna Sünnitusmaja (Tallinn), Haapsalu haigla (471...490)
-        "49", // Järvamaa Haigla (Paide) (491...520)
-        "52", // Rakvere, Tapa haigla (521...570)
-        "57", // Valga Haigla (571...600)
-        "60", // Viljandi Haigla (601...650)
-        "65", // Lõuna-Eesti Haigla (Võru), Pälva Haigla (651...710?)
-        "70", // All other hospitals
-        "95"  // Foreigners who are born in Estonia
+        '00', // Kuressaare Haigla (järjekorranumbrid 001 kuni 020)
+        '01', // Tartu Ülikooli Naistekliinik, Tartumaa, Tartu (011...019)
+        '02', // Ida-Tallinna Keskhaigla, Hiiumaa, Keila, Rapla haigla (021...220)
+        '22', // Ida-Viru Keskhaigla (Kohtla-Järve, endine Jõhvi) (221...270)
+        '27', // Maarjamõisa Kliinikum (Tartu), Jõgeva Haigla (271...370)
+        '37', // Narva Haigla (371...420)
+        '42', // Pärnu Haigla (421...470)
+        '47', // Pelgulinna Sünnitusmaja (Tallinn), Haapsalu haigla (471...490)
+        '49', // Järvamaa Haigla (Paide) (491...520)
+        '52', // Rakvere, Tapa haigla (521...570)
+        '57', // Valga Haigla (571...600)
+        '60', // Viljandi Haigla (601...650)
+        '65', // Lõuna-Eesti Haigla (Võru), Pälva Haigla (651...710?)
+        '70', // All other hospitals
+        '95'  // Foreigners who are born in Estonia
       ];
 
-    if (!(gender == "female" || gender == "male")) {
-      throw new IsikukoodException("'gender param accepts only 'male' or 'female' values.");
+    if (!(gender === 'female' || gender === 'male')) {
+      throw new IsikukoodException('gender param accepts only "male" or "female" values.');
     }
 
     if (params.birthYear) {
@@ -197,7 +197,7 @@
     if (params.birthDay) {
       d = params.birthDay;
     } else {
-      if (m === 2 && y % 4 != 0 || y % 100 == 0 && y % 400 != 0) {
+      if (m === 2 && y % 4 !== 0 || y % 100 === 0 && y % 400 !== 0) {
         d = Math.round(Math.random() * 29);
       } else if (m === 2) {
         d = Math.round(Math.random() * 28);
@@ -207,28 +207,28 @@
     }
 
     // Set the gender
-    if (gender == "male" && y >= 1800 && y <= 1899) {
-      personalId += "1";
-    } else if (gender === "female" && y >= 1800 && y <= 1899) {
-      personalId += "2";
-    } else if (gender === "male" && y >= 1900 && y <= 1999) {
-      personalId += "3";
-    } else if (gender === "female" && y >= 1900 && y <= 1999) {
-      personalId += "4";
-    } else if (gender === "male" && y >= 2000) {
-      personalId += "5";
-    } else if (gender === "female" && y >= 2000) {
-      personalId += "6";
+    if (gender === 'male' && y >= 1800 && y <= 1899) {
+      personalId += '1';
+    } else if (gender === 'female' && y >= 1800 && y <= 1899) {
+      personalId += '2';
+    } else if (gender === 'male' && y >= 1900 && y <= 1999) {
+      personalId += '3';
+    } else if (gender === 'female' && y >= 1900 && y <= 1999) {
+      personalId += '4';
+    } else if (gender === 'male' && y >= 2000) {
+      personalId += '5';
+    } else if (gender === 'female' && y >= 2000) {
+      personalId += '6';
     }
 
     // Set the year
     personalId += parseInt(y, 0).toString().substring(2, 4);
 
     // Set the month
-    personalId += m.toString().length === 1 ? "0" + m : m;
+    personalId += m.toString().length === 1 ? '0' + m : m;
 
     // Set the day
-    personalId += d.toString().length === 1 ? "0" + d : d;
+    personalId += d.toString().length === 1 ? '0' + d : d;
 
     // Set the hospital
     personalId += hospitals[Math.floor(Math.random() * hospitals.length)];
@@ -246,16 +246,11 @@
    *  Isikukood exception.
    *
    *  @author Dmitri Smirnov
-   *  @copyright 2014
+   *  @copyright 2014-2015
    */
   function IsikukoodException(err) {
-    if (console) {
-      console.error(err);
-    } else {
-      alert(err);
-    }
+    console.error(err);
   }
-
 
   // Make it available for Browsers and 
   if (typeof module !== 'undefined' && module.exports) {
