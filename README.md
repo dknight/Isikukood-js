@@ -11,7 +11,7 @@ Usage example.
 // Validation
 var ik = new Isikukood('47502124911');
 var isValid = ik.validate(); // true is valid, false isn't valid
-var sex = ik.getGender(); // "male" pr "female"
+var sex = ik.getGender(); // "male" or "female"
 var age = ik.getAge(); // person's age
 var birthday = ik.getBirthday(); // person's birthday
 
@@ -45,7 +45,7 @@ var maleIk = Isikukood.generate({
     <td>validate()</td>
     <td>Validates personal ID</td>
     <td>-</td>
-    <td>boolean</td>
+    <td>Boolean</td>
   </tr>
   <tr>
     <td>generate()</td>
