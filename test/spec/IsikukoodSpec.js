@@ -80,6 +80,16 @@ describe('Isikukood 48709172756', function () {
 	});
 });
 
+describe('Isikukood 49200186017', function () {
+	var ik = new Isikukood('49200186017');
+	it('should not validate', function () {
+		expect(ik.validate()).toBe(false);
+	});
+	it('should return female as a gender', function () {
+		expect(ik.getGender()).toBe('female');
+	});
+});
+
 var getAge = function(bd) {
 	var today = new Date();
 	var age = today.getFullYear() - bd.getFullYear();
