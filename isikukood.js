@@ -79,7 +79,15 @@
         return false;
       }
       var control = this.getControlNumber(code);
-      return control === parseInt(this.code.charAt(10));
+      if (control !== parseInt(this.code.charAt(10))) {
+        return false;
+      }
+      
+      var year = Number(this.code.substr(1, 2));
+      var month = Number(this.code.substr(3, 2));
+      var day = Number(this.code.substr(5, 2));
+      var birthDate = this.getBirthday();
+      return year === birthDate.getYear() && birthDate.getMonth() + 1 === month && day === birthDate.getDate();
     };
 
     /**
