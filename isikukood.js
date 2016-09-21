@@ -205,13 +205,8 @@
     if (params.birthDay) {
       d = params.birthDay;
     } else {
-      if (m === 2 && y % 4 !== 0 || y % 100 === 0 && y % 400 !== 0) {
-        d = Math.round(Math.random() * 29);
-      } else if (m === 2) {
-        d = Math.round(Math.random() * 28);
-      } else {
-        d = Math.round(Math.random() * 30);
-      }
+      var daysInMonth = new Date(y, m, 0).getDate();
+      d = Math.floor(Math.random() * daysInMonth) + 1;
     }
 
     // Set the gender
