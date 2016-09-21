@@ -87,7 +87,7 @@
       var month = Number(this.code.substr(3, 2));
       var day = Number(this.code.substr(5, 2));
       var birthDate = this.getBirthday();
-      return year === birthDate.getYear() && birthDate.getMonth() + 1 === month && day === birthDate.getDate();
+      return year === birthDate.getFullYear() % 100 && birthDate.getMonth() + 1 === month && day === birthDate.getDate();
     };
 
     /**
