@@ -34,6 +34,21 @@ describe('Generated Isikukood', function () {
 		expect(ik.getControlNumber()).toBeDefined();
 		expect(ik.getControlNumber()).toEqual(lastNumber);
 	});
+	it('should have correct day in range of 01 to 31 (#7)', function () {
+		for (var i = 0; i < 200; i++) {
+			expect(Isikukood.generate().substr(5, 2)).not.toBe('00');
+		}
+	});
+	describe('generated Isikukood (#7)', function () {
+		Array(200).fill(null).map(function (undef, i) {
+			return Isikukood.generate();
+		}).forEach(function (code) {
+			it( code + ' should be valid', function () {
+				var ik = new Isikukood(code);
+				expect(ik.validate()).toBe(true);
+			});
+		})
+	});
 });
 
 describe('Isikukood 35703150220', function () {
@@ -84,9 +99,6 @@ describe('Isikukood 49200186017', function () {
 	var ik = new Isikukood('49200186017');
 	it('should not validate', function () {
 		expect(ik.validate()).toBe(false);
-	});
-	it('should return female as a gender', function () {
-		expect(ik.getGender()).toBe('female');
 	});
 });
 
