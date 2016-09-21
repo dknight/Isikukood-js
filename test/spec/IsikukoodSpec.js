@@ -90,6 +90,13 @@ describe('Isikukood 49200186017', function () {
 	});
 });
 
+describe('Isikukood 60311213742 (#5)', function () {
+	var ik = new Isikukood('60311213742');
+	it('should validate', function () {
+		expect(ik.validate()).toBe(true);
+	});
+});
+
 var getAge = function(bd) {
 	var today = new Date();
 	var age = today.getFullYear() - bd.getFullYear();
