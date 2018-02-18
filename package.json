@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/dknight/Isikukood-js/issues"
   },
-  "homepage": "http://www.whoop.ee/posts/2014/02/17/validation-and-generation-of-estonian-personal-id.html",
+  "homepage": "https://github.com/dknight/Isikukood-js/",
   "devDependencies": {
     "eslint": "^4.18.0",
     "grunt": "~0.4.5",

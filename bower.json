@@ -1,7 +1,7 @@
 {
   "name": "isikukood",
   "version": "1.2.0",
-  "homepage": "http://www.whoop.ee/posts/2014/02/17/validation-and-generation-of-estonian-personal-id.html",
+  "homepage": "https://github.com/dknight/Isikukood-js/",
   "authors": [
     "dknight <smirnov.dmitri@gmail.com>"
   ],
