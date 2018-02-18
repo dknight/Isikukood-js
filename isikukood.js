@@ -99,18 +99,18 @@
       var firstNumber = this.code.charAt(0),
         retval = '';
       switch (firstNumber) {
-        case '1':
-        case '3':
-        case '5':
-          retval = 'male';
-          break;
-        case '2':
-        case '4':
-        case '6':
-          retval = 'female';
-          break;
-        default:
-          retval = 'unknown';
+      case '1':
+      case '3':
+      case '5':
+        retval = 'male';
+        break;
+      case '2':
+      case '4':
+      case '6':
+        retval = 'female';
+        break;
+      default:
+        retval = 'unknown';
       }
       return retval;
     };
@@ -167,7 +167,7 @@
       gender = params.gender || ((Math.round(Math.random()) === 0 ) ? 'male' : 'female'),
       personalId = '',
 
-    // Places of brith (Estonian Hospitals)
+      // Places of brith (Estonian Hospitals)
       hospitals = [
         '00', // Kuressaare Haigla (järjekorranumbrid 001 kuni 020)
         '01', // Tartu Ülikooli Naistekliinik, Tartumaa, Tartu (011...019)
@@ -252,7 +252,7 @@
    *  @copyright 2014-2015
    */
   function IsikukoodException(err) {
-    console.error(err);
+    throw new Error(err);
   }
 
   // Make it available for Browsers and 
