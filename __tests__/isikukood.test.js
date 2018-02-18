@@ -26,7 +26,7 @@ describe('Generated Isikukood', () => {
     expect(ik.getAge()).toBeTruthy();
     expect(ik.getAge() >= 0).toBe(true);
   });
-  it('should return gendre', () => {
+  it('should return gender', () => {
     expect(ik.getGender()).toBeDefined();
     expect(ik.getGender()).toBeTruthy();
   });
@@ -58,7 +58,7 @@ describe('Isikukood 35703150220', () => {
   it('should validate', () => {
     expect(ik.validate()).toBe(true);
   });
-  it('should return male as a gendre', () => {
+  it('should return male as a gender', () => {
     expect(ik.getGender()).toBe('male');
   });
   it('should return age correctly', () => {
@@ -84,7 +84,7 @@ describe('Isikukood 48709172756', () => {
   it('should not validate', () => {
     expect(ik.validate()).toBe(false);
   });
-  it('should return female as a gendre', () => {
+  it('should return female as a gender', () => {
     expect(ik.getGender()).toBe('female');
   });
   it('should return correct age', () => {
