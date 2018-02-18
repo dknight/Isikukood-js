@@ -4,16 +4,12 @@
    *  ISIKUKOOD (Personal ID in Estonian).
    *
    *  Read more about isikukood http://et.wikipedia.org/wiki/Isikukood
-   *  Docs
-   *  English: http://www.whoop.ee/posts/2014-02-17-validation-and-generation-of-estonian-personal-id/
-   *  Estonian: http://www.whoop.ee/posts/2014-02-17-isikukoodi-valideerimine-ja-genereerimine-javascript-iga/
+   *  Docs: https://github.com/dknight/Isikukood-js/
    *
    * @author Dmitri Smirnov
-   * @copyright 2014-2015
+   * @copyright 2014-2018
    *
    * The MIT License (MIT)
-   *
-   * Copyright (c) 2014-2015 Dmitri Smirnov
    *
    * Permission is hereby granted, free of charge, to any person obtaining a copy
    * of this software and associated documentation files (the "Software"), to deal
@@ -249,7 +245,7 @@
    *  Isikukood exception.
    *
    *  @author Dmitri Smirnov
-   *  @copyright 2014-2015
+   *  @copyright 2014-2018
    */
   function IsikukoodException(err) {
     throw new Error(err);
