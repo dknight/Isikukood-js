@@ -251,7 +251,7 @@
     throw new Error(err);
   }
 
-  // Make it available for Browsers and 
+  // Make it available for browsers and node
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = Isikukood;
   } else {
