@@ -1,11 +1,16 @@
 # Estonian personal ID (isikukood) JavaScript class
 
-## Usage
-Include JS file into your HTML.
-```html
-<script src="Isikukood.js"></script>
+## Install
+Install via npm
+```sh
+npm install isikukood
 ```
 
+Download and include JS file into your HTML.
+```html
+<script src="isikukood.js"></script>
+```
+## Usage
 Usage example.
 ```javascript
 // Validation
