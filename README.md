@@ -27,7 +27,7 @@ var validIk = Isikukood.generate(); // "49002124277"
 var maleIk = Isikukood.generate({
   gender: "male",
   birthDay: 23,
-  birthMonth: 3
+  birthMonth: 3,
   birthYear: 1984
 });
 ```
