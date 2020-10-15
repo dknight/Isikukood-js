@@ -137,7 +137,7 @@
         year += 1900;
       } else if (firstNumber === '5' || firstNumber === '6') {
         year += 2000;
-      } else {
+      } else if (firstNumber === '7' || firstNumber === '8') {
         year += 2100;
       }
 
@@ -214,10 +214,16 @@
       personalId += '3';
     } else if (gender === 'female' && y >= 1900 && y <= 1999) {
       personalId += '4';
-    } else if (gender === 'male' && y >= 2000) {
+    } else if (gender === 'male' && y >= 2000 && y <= 2099) {
       personalId += '5';
-    } else if (gender === 'female' && y >= 2000) {
+    } else if (gender === 'female' && y >= 2000 && y <= 2099) {
       personalId += '6';
+    } else if (gender === 'male' && y >= 2100 && y <= 2199) {
+      personalId += '7';
+    } else if (gender === 'female' && y >= 2100 && y <= 2199) {
+      personalId += '8';
+    } else {
+      throw new IsikukoodException('unsupported year.');
     }
 
     // Set the year
