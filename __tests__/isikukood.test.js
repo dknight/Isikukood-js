@@ -111,6 +111,13 @@ describe('Isikukood 60311213742 (#5)', () => {
   });
 });
 
+describe('Isikukood as a number', () => {
+  const ik = new Isikukood(60311213742);
+  it('should validate', () => {
+    expect(ik.validate()).toBe(true);
+  });
+});
+
 const getAge = bd => {
   const today = new Date();
   let age = today.getFullYear() - bd.getFullYear();

@@ -34,7 +34,7 @@
 
     'use strict';
 
-    this.code = code;
+    this.code = String(code);
 
     /**
      *  Gets the control number of personal ID.
