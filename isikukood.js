@@ -172,7 +172,7 @@ export class Isikukood {
   }
 
   /**
-   * Parses the code and return it's data.
+   * Parses the code and return it's data as object.
    * @param {string|number} [code]
    * @return {PersonalData}
    */
