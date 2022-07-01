@@ -14,7 +14,7 @@ Download and include JS file into your HTML.
 ```
 
 Using ES Modules
-```html
+```js
 import {Isikukood} from './dest/isikukood.mjs';
 ```
 
@@ -22,17 +22,17 @@ import {Isikukood} from './dest/isikukood.mjs';
 Usage example.
 ```javascript
 // Validation
-var ik = new Isikukood('47502124911');
-var isValid = ik.validate(); // true is valid, false isn't valid
-var sex = ik.getGender(); // "male" or "female"
-var age = ik.getAge(); // person's age
-var birthday = ik.getBirthday(); // person's birthday
+const ik = new Isikukood('47502124911');
+const isValid = ik.validate(); // true is valid, false isn't valid
+const sex = ik.getGender(); // "male" or "female"
+const age = ik.getAge(); // person's age
+const birthday = ik.getBirthday(); // person's birthday
 
 // Generation
-var validIk = Isikukood.generate(); // "49002124277"
+const validIk = Isikukood.generate(); // "49002124277"
 
 // Generate with parameters
-var maleIk = Isikukood.generate({
+const maleIk = Isikukood.generate({
   gender: "male",
   birthDay: 23,
   birthMonth: 3,
