@@ -1,5 +1,7 @@
 # Estonian personal ID (isikukood) JavaScript class
 
+Version 2.0.0 is fully compatible with previous major versions 1.X.X.
+
 ## Install
 Install via npm
 ```sh

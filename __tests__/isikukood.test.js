@@ -1,4 +1,4 @@
-const Isikukood = require('../isikukood');
+const Isikukood = require('../dest/isikukood.cjs.js').Isikukood;
 
 /**
  *  Isikukood test suite.
@@ -6,9 +6,8 @@ const Isikukood = require('../isikukood');
  *  @author Jaak Ritso
  *  @author Dmitri Smirnov
  *  
- *  @2015-2018
+ *  @2015-2022
  */
-
 'use strict';
 
 describe('Generated Isikukood', () => {
@@ -37,13 +36,13 @@ describe('Generated Isikukood', () => {
   });
   it('should have correct day in range of 01 to 31 (#7)', () => {
     for (let i = 0; i < 200; i++) {
-      expect(Isikukood.generate().substr(5, 2)).not.toBe('00');
+      expect(Isikukood.generate().substring(5, 7)).not.toBe('00');
     }
   });
   describe('generated Isikukood (#7)', () => {
     Array(200)
     .fill(null)
-    .map((undef, i) => Isikukood.generate())
+    .map((_) => Isikukood.generate())
     .forEach(code => {
       it(code + ' should be valid', () => {
         let ik = new Isikukood(code);
@@ -112,9 +111,16 @@ describe('Isikukood 60311213742 (#5)', () => {
 });
 
 describe('Isikukood as a number', () => {
-  const ik = new Isikukood(60311213742);
   it('should validate', () => {
+    const ik = new Isikukood(60311213742);
     expect(ik.validate()).toBe(true);
+  });
+});
+
+describe('Strange codes (#22)', () => {
+  it('should not start with zero', () => {
+    const ik = new Isikukood('01010101010');
+    expect(ik.validate()).toBe(false);
   });
 });
 
