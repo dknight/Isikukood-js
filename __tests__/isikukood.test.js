@@ -47,7 +47,35 @@ describe('Generated Isikukood', () => {
       it(code + ' should be valid', () => {
         let ik = new Isikukood(code);
         expect(ik.validate()).toBe(true);
-      })
+      });
+    });
+  });
+
+  describe('It should generate female code (#28)', () => {
+    Array(200)
+    .fill(null)
+        .map((_) => Isikukood.generate({
+          gender: Isikukood.GENDER.FEMALE
+        }))
+    .forEach(code => {
+      it('should be female code', () => {
+        let ik = new Isikukood(code);
+        expect(ik.getGender()).toBe(Isikukood.GENDER.FEMALE);
+      });
+    });
+  });
+
+  describe('It should generate male code (#28)', () => {
+    Array(200)
+    .fill(null)
+        .map((_) => Isikukood.generate({
+          gender: Isikukood.GENDER.MALE
+        }))
+    .forEach(code => {
+      it('should be female code', () => {
+        let ik = new Isikukood(code);
+        expect(ik.getGender()).toBe(Isikukood.GENDER.MALE);
+      });
     });
   });
 });
@@ -58,7 +86,7 @@ describe('Isikukood 35703150220', () => {
     expect(ik.validate()).toBe(true);
   });
   it('should return male as a gender', () => {
-    expect(ik.getGender()).toBe('male');
+    expect(ik.getGender()).toBe(Isikukood.GENDER.MALE);
   });
   it('should return age correctly', () => {
     const correct_bd = new Date(1957, 2, 15);
@@ -84,7 +112,7 @@ describe('Isikukood 48709172756', () => {
     expect(ik.validate()).toBe(false);
   });
   it('should return female as a gender', () => {
-    expect(ik.getGender()).toBe('female');
+    expect(ik.getGender()).toBe(Isikukood.GENDER.FEMALE);
   });
   it('should return correct age', () => {
     var correct_bd = new Date(1987, 8, 17);

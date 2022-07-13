@@ -1,6 +1,6 @@
 {
   "name": "isikukood",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Estonian personal ID (isikukood) JavaScript module",
   "main": "isikukood.js",
   "directories": {
@@ -17,6 +17,7 @@
   "keywords": [
     "isikukood",
     "estonia",
+    "eesti",
     "personalid"
   ],
   "author": "Dmitri Smirnov",
@@ -26,12 +27,11 @@
   },
   "homepage": "https://github.com/dknight/Isikukood-js/",
   "devDependencies": {
-    "eslint": "8.18.0",
     "esbuild": "0.14.47",
+    "eslint": "8.18.0",
     "jest": "28.1.2"
   },
-  "dependencies": {},
-    "jest": {
+  "jest": {
     "verbose": true,
     "testEnvironmentOptions": {
       "url": "http://localhost:4000/"
