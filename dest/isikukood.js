@@ -30,6 +30,13 @@ var ik = (() => {
     set code(c) {
       this._code = String(c);
     }
+    static get GENDER() {
+      return {
+        MALE: "male",
+        FEMALE: "female",
+        UNKNOWN: "unknown"
+      };
+    }
     getControlNumber(code) {
       if (!code) {
         code = this.code;
@@ -78,15 +85,15 @@ var ik = (() => {
         case "1":
         case "3":
         case "5":
-          retval = "male";
+          retval = this.constructor.GENDER.MALE;
           break;
         case "2":
         case "4":
         case "6":
-          retval = "female";
+          retval = this.constructor.GENDER.FEMALE;
           break;
         default:
-          retval = "unknown";
+          retval = this.constructor.GENDER.UNKNOWN;
       }
       return retval;
     }
@@ -123,7 +130,7 @@ var ik = (() => {
       let y;
       let m;
       let d;
-      let gender = params.gender || Math.round(Math.random()) === 0 ? "male" : "female";
+      let gender = params.gender || (Math.round(Math.random()) === 0 ? this.GENDER.MALE : this.GENDER.FEMALE);
       let personalId = "";
       const hospitals = [
         "00",
@@ -142,7 +149,7 @@ var ik = (() => {
         "70",
         "95"
       ];
-      if (!(gender === "female" || gender === "male")) {
+      if (![this.GENDER.MALE, this.GENDER.FEMALE].includes(gender)) {
         return "";
       }
       if (params.birthYear) {
@@ -161,21 +168,21 @@ var ik = (() => {
         var daysInMonth = new Date(y, m, 0).getDate();
         d = Math.floor(Math.random() * daysInMonth) + 1;
       }
-      if (gender === "male" && y >= 1800 && y <= 1899) {
+      if (gender === this.GENDER.MALE && y >= 1800 && y <= 1899) {
         personalId += "1";
-      } else if (gender === "female" && y >= 1800 && y <= 1899) {
+      } else if (gender === this.GENDER.FEMALE && y >= 1800 && y <= 1899) {
         personalId += "2";
-      } else if (gender === "male" && y >= 1900 && y <= 1999) {
+      } else if (gender === this.GENDER.MALE && y >= 1900 && y <= 1999) {
         personalId += "3";
-      } else if (gender === "female" && y >= 1900 && y <= 1999) {
+      } else if (gender === this.GENDER.FEMALE && y >= 1900 && y <= 1999) {
         personalId += "4";
-      } else if (gender === "male" && y >= 2e3 && y <= 2099) {
+      } else if (gender === this.GENDER.MALE && y >= 2e3 && y <= 2099) {
         personalId += "5";
-      } else if (gender === "female" && y >= 2e3 && y <= 2099) {
+      } else if (gender === this.GENDER.FEMALE && y >= 2e3 && y <= 2099) {
         personalId += "6";
-      } else if (gender === "male" && y >= 2100 && y <= 2199) {
+      } else if (gender === this.GENDER.MALE && y >= 2100 && y <= 2199) {
         personalId += "7";
-      } else if (gender === "female" && y >= 2100 && y <= 2199) {
+      } else if (gender === this.GENDER.FEMALE && y >= 2100 && y <= 2199) {
         personalId += "8";
       } else {
         return "";

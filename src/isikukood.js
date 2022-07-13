@@ -43,8 +43,7 @@ export class Isikukood {
   }
 
   /**
-   * @public
-   * @return {string}
+   * @type {string}
    */
   get code() {
     return this._code;
@@ -55,6 +54,17 @@ export class Isikukood {
    */
   set code(c) {
     this._code = String(c);
+  }
+
+  /**
+   * @enum {string}
+   */
+  static get GENDER() {
+    return {
+      MALE: 'male',
+      FEMALE: 'female',
+      UNKNOWN: 'unknown'
+    }; 
   }
 
   /**
@@ -126,15 +136,15 @@ export class Isikukood {
     case '1':
     case '3':
     case '5':
-      retval = 'male';
+      retval = this.constructor.GENDER.MALE;
       break;
     case '2':
     case '4':
     case '6':
-      retval = 'female';
+      retval = this.constructor.GENDER.FEMALE;
       break;
     default:
-      retval = 'unknown';
+      retval = this.constructor.GENDER.UNKNOWN;
     }
     return retval;
   }
@@ -202,9 +212,9 @@ export class Isikukood {
     let y;
     let m;
     let d;
-    let gender = params.gender || (Math.round(Math.random()) === 0)
-      ? 'male'
-      : 'female';
+    let gender = params.gender || (Math.round(Math.random()) === 0
+      ? this.GENDER.MALE
+      : this.GENDER.FEMALE);
     let personalId = '';
 
     // Places of brith (Estonian Hospitals)
@@ -226,7 +236,7 @@ export class Isikukood {
       '95'  // Foreigners who are born in Estonia
     ];
 
-    if (!(gender === 'female' || gender === 'male')) {
+    if (![this.GENDER.MALE, this.GENDER.FEMALE].includes(gender)) {
       return '';
     }
 
@@ -250,21 +260,21 @@ export class Isikukood {
     }
 
     // Set the gender
-    if (gender === 'male' && y >= 1800 && y <= 1899) {
+    if (gender === this.GENDER.MALE && y >= 1800 && y <= 1899) {
       personalId += '1';
-    } else if (gender === 'female' && y >= 1800 && y <= 1899) {
+    } else if (gender === this.GENDER.FEMALE && y >= 1800 && y <= 1899) {
       personalId += '2';
-    } else if (gender === 'male' && y >= 1900 && y <= 1999) {
+    } else if (gender === this.GENDER.MALE && y >= 1900 && y <= 1999) {
       personalId += '3';
-    } else if (gender === 'female' && y >= 1900 && y <= 1999) {
+    } else if (gender === this.GENDER.FEMALE && y >= 1900 && y <= 1999) {
       personalId += '4';
-    } else if (gender === 'male' && y >= 2000 && y <= 2099) {
+    } else if (gender === this.GENDER.MALE && y >= 2000 && y <= 2099) {
       personalId += '5';
-    } else if (gender === 'female' && y >= 2000 && y <= 2099) {
+    } else if (gender === this.GENDER.FEMALE && y >= 2000 && y <= 2099) {
       personalId += '6';
-    } else if (gender === 'male' && y >= 2100 && y <= 2199) {
+    } else if (gender === this.GENDER.MALE && y >= 2100 && y <= 2199) {
       personalId += '7';
-    } else if (gender === 'female' && y >= 2100 && y <= 2199) {
+    } else if (gender === this.GENDER.FEMALE && y >= 2100 && y <= 2199) {
       personalId += '8';
     } else {
       return '';
