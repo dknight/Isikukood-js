@@ -2,7 +2,7 @@
 
 [![License MIT](https://img.shields.io/npm/l/isikukood)](https://github.com/dknight/Isikukood-js/blob/main/LICENSE)
 [![Build](https://github.com/dknight/Isikukood-js/actions/workflows/node.js.yml/badge.svg)](https://github.com/dknight/Isikukood-js/actions/workflows/node.js.yml)
-![Version](https://img.shields.io/npm/v/isikukood)
+[![Version](https://img.shields.io/npm/v/isikukood)](https://www.npmjs.com/package/isikukood)
 
 JavaScript class for both browser and Node. Generates and validates Estonian personal IDs.
 
