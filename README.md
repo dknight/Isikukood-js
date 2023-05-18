@@ -10,13 +10,13 @@ JavaScript class for both browser and Node. Generates and validates Estonian per
 
 ## Version 3
 
-- Fully backwards compatible with previous major versions 1.X.X.
+- Fully backwards compatible with previous major versions 2.x.x and 1.x.x.
 - Migrated to TypeScript.
 - Removed CommonJS support, use ESModules.
 
 ## Version 2
 
-- Fully backwards compatible with previous major versions 1.X.X.
+- Fully backwards compatible with previous major versions 1.x.x.
 
 ## Install
 
