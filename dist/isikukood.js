@@ -107,7 +107,7 @@ var Isikukood = (() => {
       }
       return new Date(year, month, day);
     }
-    parse(code) {
+    parse(code = "") {
       if (!code) {
         code = this.code;
       }
@@ -122,7 +122,7 @@ var Isikukood = (() => {
       let y;
       let m;
       let d;
-      let gender = params.gender || (Math.round(Math.random()) === 0 ? Gender.MALE : Gender.FEMALE);
+      const gender = params.gender || (Math.round(Math.random()) === 0 ? Gender.MALE : Gender.FEMALE);
       let personalId = "";
       const hospitals = [
         "00",

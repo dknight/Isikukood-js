@@ -1,5 +1,6 @@
 SRC := ./src
 DIST := ./dist
+DOCS := ./docs
 ESBUILD := ./node_modules/.bin/esbuild
 JEST := ./node_modules/.bin/jest
 LINT := npx eslint .
@@ -27,6 +28,7 @@ isikukood.esm.min.js:
 		--outfile=$(DIST)/isikukood.esm.min.js
 
 build: isikukood isikukood.min.js isikukood.esm.js isikukood.esm.min.js
+	cp $(DIST)/isikukood.esm.js $(DOCS)
 
 lint:
 	$(LINT)
