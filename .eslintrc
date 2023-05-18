@@ -14,7 +14,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "ignorePatterns": ["dist/*.js"],
+  "ignorePatterns": ["dist/*.js", "docs/*.js"],
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
     "indent": ["error", 2, {"SwitchCase": 1}],
