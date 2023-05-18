@@ -74,16 +74,16 @@ const maleIk = Isikukood.generate({
     <th>Return</th>
   </tr>
   <tr>
+    <td>new Isikukood()</td>
+    <td>constructor</td>
+    <td>number|string</td>
     <td>Isikukood</td>
-    <td>Creates an instance of Isikukood object.</td>
-    <td>Number|String required</td>
-    <td>Function</td>
   </tr>
   <tr>
     <td>validate()</td>
     <td>Validates personal ID</td>
     <td>-</td>
-    <td>Boolean</td>
+    <td>boolean</td>
   </tr>
   <tr>
     <td>generate()</td>
