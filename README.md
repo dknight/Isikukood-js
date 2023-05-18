@@ -1,6 +1,6 @@
 # Estonian personal ID (isikukood)
 
-[![License MIT](https://img.shields.io/npm/l/Isikukood-js)](https://github.com/dknight/Isikukood-js/blob/main/LICENSE)
+[![License MIT](https://img.shields.io/npm/l/isikukood)](https://github.com/dknight/Isikukood-js/blob/main/LICENSE)
 [![Build](https://github.com/dknight/Isikukood-js/actions/workflows/node.js.yml/badge.svg)](https://github.com/dknight/Isikukood-js/actions/workflows/node.js.yml)
 ![Version](https://img.shields.io/npm/v/isikukood)
 
