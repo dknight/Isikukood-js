@@ -1,0 +1,7 @@
+{
+  "preset": "ts-jest",
+  "moduleDirectories": ["node_modules", "src"],
+  "testEnvironmentOptions": {
+    "url": "http://localhost:4000/"
+  }
+}

@@ -1,2 +1,2 @@
 import {Isikukood} from 'isikukood';
-export {Isikukood}
+export {Isikukood};

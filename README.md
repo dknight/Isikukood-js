@@ -1,25 +1,49 @@
-# Estonian personal ID (isikukood) JavaScript class
+# Estonian personal ID (isikukood)
 
-Version 2.0.0 is fully compatible with previous major versions 1.X.X.
+[![License MIT](https://img.shields.io/npm/l/Isikukood-js)](https://github.com/dknight/Isikukood-js/blob/main/LICENSE)
+[![Build](https://github.com/dknight/Isikukood-js/actions/workflows/node.js.yml/badge.svg)](https://github.com/dknight/Isikukood-js/actions/workflows/node.js.yml)
+![Version](https://img.shields.io/npm/v/Isikukood-js)
+
+JavaScript class for both browser and Node. Generates and validates Estonian personal IDs.
+
+[Check demo](https://dknight.github.io/Isikukood-js)
+
+## Version 3
+
+- Fully backwards compatible with previous major versions 1.X.X.
+- Migrated to TypeScript.
+- Removed CommonJS support, use ESModules.
+
+## Version 2
+
+- Fully backwards compatible with previous major versions 1.X.X.
 
 ## Install
-Install via npm
+
+Install via npm, yarn or pnpm.
+
 ```sh
 npm install isikukood
+yarn install isikukood
+pnpm install isikukood
 ```
 
 Download and include JS file into your HTML.
+
 ```html
-<script src="./dest/isikukood.js"></script>
+<script src="./dist/isikukood.esm.js" type="module"></script>
 ```
 
 Using ES Modules
+
 ```js
-import {Isikukood} from './dest/isikukood.mjs';
+import {Isikukood} from './dist/isikukood.esm.js';
 ```
 
 ## Usage
+
 Usage example.
+
 ```javascript
 // Validation
 const ik = new Isikukood('47502124911');
@@ -33,14 +57,15 @@ const validIk = Isikukood.generate(); // "49002124277"
 
 // Generate with parameters
 const maleIk = Isikukood.generate({
-  gender: "male",
+  gender: 'male',
   birthDay: 23,
   birthMonth: 3,
-  birthYear: 1984
+  birthYear: 1984,
 });
 ```
 
 ## API
+
 <table class="table1">
   <tr>
     <th>Method</th>
@@ -99,22 +124,31 @@ const maleIk = Isikukood.generate({
 </table>
 
 ## Development
+
 Be sure that your [GNU Make](https://www.gnu.org/software/make/) software is installed on your system. Development commands are very simple.
 
 ### Everything
+
 ```sh
 make
 ```
 
 ### Build
+
 ```sh
 make build
 ```
 
 ### Test
+
 ```sh
 make test
 ```
 
+## Contribution
+
+Any help is appreciated. Found a bug, typo, inaccuracy, etc.? Please do not hesitate to make a pull request or file an issue.
+
 ## License
-[MIT License](https://mit-license.org/) 2022
+
+[MIT License](https://mit-license.org/) 2014-2023

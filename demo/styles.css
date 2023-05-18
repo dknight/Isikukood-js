@@ -1,0 +1,57 @@
+body {
+  background: lightblue;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+main {
+  background-color: #fff;
+  border-radius: 2rem;
+  margin: 4rem auto;
+  max-width: 40rem;
+  padding: 2rem;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+form .input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+form .result {
+  color: green;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+form.-invalid .result {
+  color: red;
+}
+form.-invalid input {
+  border-color: red;
+}
+
+button {
+  background-color: #0c7a9e;
+  border-radius: 0.5rem;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  padding: 0.5rem 1rem;
+}
+
+button:hover {
+  background-color: #0a6280;
+}
+
+input {
+  border-radius: 1.5rem;
+  border: 3px solid #aaa;
+  flex: 1;
+  font: inherit;
+  padding: 1.5rem;
+}

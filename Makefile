@@ -1,35 +1,37 @@
 SRC := ./src
-DEST := ./dest
+DIST := ./dist
 ESBUILD := ./node_modules/.bin/esbuild
-ESLINT := ./node_modules/.bin/eslint
 JEST := ./node_modules/.bin/jest
+LINT := npx eslint .
 
-all: build lint test
+all: test build
 
 isikukood:
-	$(ESBUILD) $(SRC)/isikukood.js --global-name=ik --format=iife\
-		--footer:js="window.Isikukood=ik.Isikukood;"\
-		--outfile=$(DEST)/isikukood.js
+	$(ESBUILD) $(SRC)/isikukood.ts --global-name=ik --format=iife \
+		--footer:js="window.Isikukood=Isikukood.default;" \
+		--global-name=Isikukood \
+		--outfile=$(DIST)/isikukood.js
 
 isikukood.min.js:
-	$(ESBUILD) $(DEST)/isikukood.js --minify --sourcemap\
-		--banner:js='// isikukood.js, https://github.com/dknight/Isikukood-js'\
-		--outfile=$(DEST)/isikukood.min.js
+	$(ESBUILD) $(DIST)/isikukood.js --minify --sourcemap \
+		--banner:js='// isikukood.js, https://github.com/dknight/Isikukood-js' \
+		--outfile=$(DIST)/isikukood.min.js
 
-isikukood.mjs:
-	$(ESBUILD) $(SRC)/isikukood.js --format=esm\
-		--outfile=$(DEST)/isikukood.mjs
+isikukood.esm.js:
+	$(ESBUILD) $(SRC)/isikukood.ts --format=esm \
+		--outfile=$(DIST)/isikukood.esm.js
 
-isikukood.cjs.js:
-	$(ESBUILD) $(SRC)/isikukood.js --format=cjs\
-		--outfile=$(DEST)/isikukood.cjs.js
+isikukood.esm.min.js:
+	$(ESBUILD) $(DIST)/isikukood.esm.js --minify --sourcemap \
+		--banner:js='// isikukood.esm.js, https://github.com/dknight/Isikukood-js' \
+		--outfile=$(DIST)/isikukood.esm.min.js
 
-build: isikukood isikukood.min.js isikukood.mjs isikukood.cjs.js
+build: isikukood isikukood.min.js isikukood.esm.js isikukood.esm.min.js
 
 lint:
-	$(ESLINT) $(SRC)/isikukood.js
+	$(LINT)
 
 test:
-	$(call lint)
+	$(LINT)
 	$(JEST)
 
