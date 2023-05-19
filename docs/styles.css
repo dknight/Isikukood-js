@@ -23,8 +23,10 @@ form .input {
 
 form .result {
   color: green;
+  display: inline-block;
   font-size: 1.4em;
   font-weight: bold;
+  margin-top: 1rem;
 }
 
 form.-invalid .result {
@@ -54,4 +56,8 @@ input {
   flex: 1;
   font: inherit;
   padding: 0.5rem;
+}
+
+dd {
+  font-weight: bold;
 }

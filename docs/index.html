@@ -18,6 +18,14 @@
           <button id="generate" class="minimal">Generate</button>
         </div>
         <output id="result" class="result invalid"></output>
+        <dl id="result-parsed" hidden>
+          <dt>Gender</dt>
+          <dd id="result-gender"></dd>
+          <dt>Birthday</dt>
+          <dd id="result-bd"></dd>
+          <dt>Age</dt>
+          <dd id="result-age"></dd>
+        </dl>
       </form>
     </main>
 
@@ -27,6 +35,10 @@
         const form = document.getElementById('form-personal-id');
         const personalIdInput = document.getElementById('personal-id');
         const resultElem = document.getElementById('result');
+        const resultParsedElem = document.getElementById('result-parsed');
+        const resultGender = document.getElementById('result-gender');
+        const resultBD = document.getElementById('result-bd');
+        const resultAge = document.getElementById('result-age');
         const generateBtn = document.getElementById('generate');
 
 
@@ -36,9 +48,19 @@
           if (isikukood.validate()) {
             form.classList.remove('-invalid');
             resultElem.textContent = 'Personal ID is valid';
+            resultParsedElem.hidden = false;
+            const data = isikukood.parse();
+            resultGender.textContent = data.gender;
+            resultBD.textContent = data.birthDay.toLocaleDateString('et-EE', {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric',
+            });
+            resultAge.textContent = data.age;
           } else {
             form.classList.add('-invalid');
             resultElem.textContent = 'Personal ID is invalid';
+            resultParsedElem.hidden = true;
           }
         });
 
@@ -46,6 +68,7 @@
           event.preventDefault();
           personalIdInput.value = Isikukood.generate();
           resultElem.textContent = '';
+          resultParsedElem.hidden = true;
           form.classList.remove('-invalid');
         });
       });
