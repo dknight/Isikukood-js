@@ -1,4 +1,4 @@
-import Isikukood, {Gender} from '../index';
+import Isikukood, {Gender, PersonalData} from '../index';
 /**
  *  Isikukood test suite.
  *
@@ -118,6 +118,19 @@ describe('Isikukood 35703150220', () => {
   it('should have controlNumber 0', () => {
     expect(ik.getControlNumber()).toEqual(0);
   });
+
+  it('should parse the id', () => {
+    const expBD = new Date(1957, 2, 15);
+    const exp: PersonalData = {
+      gender: Gender.MALE,
+      age: getAge(expBD),
+      birthDay: expBD,
+    };
+    let got = Isikukood.parse(ik.code);
+    expect(got).toStrictEqual(exp);
+    got = ik.parse();
+    expect(got).toStrictEqual(exp);
+  });
 });
 
 describe('Isikukood 48709172756', () => {
@@ -166,7 +179,6 @@ describe('Isikukood 28709172754', () => {
 
 describe('Isikukood 49200186017', () => {
   const ik: Isikukood = new Isikukood('49200186017');
-
   it('should not validate', () => {
     expect(ik.validate()).toBe(false);
   });
@@ -176,6 +188,19 @@ describe('Isikukood 60311213742 (#5)', () => {
   const ik: Isikukood = new Isikukood('60311213742');
   it('should validate', () => {
     expect(ik.validate()).toBe(true);
+  });
+
+  it('should parse the id', () => {
+    const expBD = new Date(2003, 10, 21);
+    const exp: PersonalData = {
+      gender: Gender.FEMALE,
+      age: getAge(expBD),
+      birthDay: expBD,
+    };
+    let got: PersonalData = Isikukood.parse(ik.code);
+    expect(got).toStrictEqual(exp);
+    got = ik.parse();
+    expect(got).toStrictEqual(exp);
   });
 });
 

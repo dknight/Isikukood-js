@@ -155,14 +155,16 @@ export default class Isikukood {
   /**
    * Parses the code and return it's data as object.
    */
-  parse(code: string = ''): PersonalData {
-    if (!code) {
-      code = this.code;
-    }
+  parse(): PersonalData {
+    return Isikukood.parse(this.code);
+  }
+
+  static parse(code: string | number): PersonalData {
+    const ik: Isikukood = new this(code);
     const data: PersonalData = {
-      gender: this.getGender(),
-      birthDay: this.getBirthday(),
-      age: this.getAge(),
+      gender: ik.getGender(),
+      birthDay: ik.getBirthday(),
+      age: ik.getAge(),
     };
     return data;
   }
@@ -176,14 +178,7 @@ export default class Isikukood {
    *  3 - March
    *  etc.
    */
-  static generate(
-    params: {
-      gender?: Gender;
-      birthYear?: number;
-      birthMonth?: number;
-      birthDay?: number;
-    } = {}
-  ): string {
+  static generate(params: GenerateInput = {}): string {
     let y: number;
     let m: number;
     let d: number;
@@ -275,9 +270,16 @@ export default class Isikukood {
 }
 
 export interface PersonalData {
-  gender: string;
+  gender: Gender;
   birthDay: Date;
   age: number;
+}
+
+export interface GenerateInput {
+  gender?: Gender;
+  birthYear?: number;
+  birthMonth?: number;
+  birthDay?: number;
 }
 
 export enum Gender {

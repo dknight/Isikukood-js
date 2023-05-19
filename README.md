@@ -66,62 +66,24 @@ const maleIk = Isikukood.generate({
 
 ## API
 
-<table class="table1">
-  <tr>
-    <th>Method</th>
-    <th>Description</th>
-    <th>Arguments</th>
-    <th>Return</th>
-  </tr>
-  <tr>
-    <td>new Isikukood()</td>
-    <td>constructor</td>
-    <td>number|string</td>
-    <td>Isikukood</td>
-  </tr>
-  <tr>
-    <td>validate()</td>
-    <td>Validates personal ID</td>
-    <td>-</td>
-    <td>boolean</td>
-  </tr>
-  <tr>
-    <td>generate()</td>
-    <td>Static function generates a valid personal ID.</td>
-    <td>Object { gender: "male|female", birthDay: day, birthMonth: month, birthYear: year }.r Month are beginning from 1, eg. 1 is January, 2 is February etc.</td>
-    <td>string</td>
-  </tr>
-  <tr>
-    <td>getGender()</td>
-    <td>Get the gender of a person.</td>
-    <td>-</td>
-    <td>string</td>
-  </tr>
-  <tr>
-    <td>getBirthday()</td>
-    <td>Get the birthday of a person.</td>
-    <td>-</td>
-    <td>Date</td>
-  </tr>
-  <tr>
-    <td>getAge()</td>
-    <td>Get the birthday of a person in years.</td>
-    <td>-</td>
-    <td>number</td>
-  </tr>
-  <tr>
-    <td>getControlNumber()</td>
-    <td>Gets the control number of personal ID</td>
-    <td>-</td>
-    <td>number</td>
-  </tr>
-    <tr>
-    <td>parse()</td>
-    <td>Parses the code and return it's data as object.</td>
-    <td>-</td>
-    <td>object</td>
-  </tr>
-</table>
+### Instance methods
+
+| Method             | Description                                   | Arguments        | Return       |
+| ------------------ | --------------------------------------------- | ---------------- | ------------ |
+| new Isikukood()    | constructor                                   | number \| string | Isikukood    |
+| validate()         | Validates personal ID                         | -                | boolean      |
+| generate()         | Static function generates a valid personal ID | GenerateInput    | string       |
+| getGender()        | Get the gender of a person                    | -                | Gender       |
+| getBirthday()      | Get the birthday of a person                  | -                | Date         |
+| getAge()           | Get the birthday of a person in years         | -                | number       |
+| getControlNumber() | Gets the control number of personal ID        | -                | number       |
+| parse()            | Parses the code                               | -                | PersonalData |
+
+### Static methods
+
+| Method  | Description     | Arguments        | Return       |
+| ------- | --------------- | ---------------- | ------------ |
+| parse() | Parses the code | number \| string | PersonalData |
 
 ## Development
 

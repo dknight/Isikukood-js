@@ -84,14 +84,15 @@ class Isikukood {
     }
     return new Date(year, month, day);
   }
-  parse(code = "") {
-    if (!code) {
-      code = this.code;
-    }
+  parse() {
+    return Isikukood.parse(this.code);
+  }
+  static parse(code) {
+    const ik = new this(code);
     const data = {
-      gender: this.getGender(),
-      birthDay: this.getBirthday(),
-      age: this.getAge()
+      gender: ik.getGender(),
+      birthDay: ik.getBirthday(),
+      age: ik.getAge()
     };
     return data;
   }

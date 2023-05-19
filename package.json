@@ -1,6 +1,6 @@
 {
   "name": "isikukood",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Estonian personal ID (isikukood) JavaScript module",
   "main": "index.ts",
   "type": "module",

@@ -1,3 +1,3 @@
-import Isikukood, {Gender, PersonalData} from './src/isikukood';
-export {Gender, PersonalData};
+import Isikukood, {Gender, PersonalData, GenerateInput} from './src/isikukood';
+export {Gender, PersonalData, GenerateInput};
 export default Isikukood;
