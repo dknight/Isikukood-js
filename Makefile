@@ -1,4 +1,5 @@
 SRC := ./src
+FILE='isikukood.ts'
 DIST := ./dist
 DOCS := ./docs
 ESBUILD := ./node_modules/.bin/esbuild
@@ -8,7 +9,7 @@ LINT := npx eslint .
 all: test build
 
 isikukood:
-	$(ESBUILD) $(SRC)/isikukood.ts --global-name=ik --format=iife \
+	$(ESBUILD) $(SRC)/$(FILE) --global-name=ik --format=iife \
 		--footer:js="window.Isikukood=Isikukood.default;" \
 		--global-name=Isikukood \
 		--outfile=$(DIST)/isikukood.js
@@ -19,7 +20,7 @@ isikukood.min.js:
 		--outfile=$(DIST)/isikukood.min.js
 
 isikukood.esm.js:
-	$(ESBUILD) $(SRC)/isikukood.ts --format=esm \
+	$(ESBUILD) $(SRC)/$(FILE) --format=esm \
 		--outfile=$(DIST)/isikukood.esm.js
 
 isikukood.esm.min.js:
