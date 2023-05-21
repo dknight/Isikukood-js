@@ -1,4 +1,4 @@
-import Isikukood, {Gender, PersonalData} from '../index';
+import Isikukood, {Gender, PersonalData} from '../src/isikukood';
 /**
  *  Isikukood test suite.
  *
