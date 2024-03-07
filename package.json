@@ -41,5 +41,8 @@
   "dependencies": {
     "babel-jest": "^29.5.0",
     "jest": "^29.5.0"
+  },
+  "exports": {
+    "./dist/*.js": "./dist/*.js"
   }
 }
