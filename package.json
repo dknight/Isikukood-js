@@ -44,5 +44,5 @@
   },
   "exports": {
     "./dist/*.js": "./dist/*.js"
-  },
+  }
 }
