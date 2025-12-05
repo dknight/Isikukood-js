@@ -9,6 +9,9 @@
   "directories": {
     "test": "test"
   },
+  "engines": {
+    "node": ">=16"
+  },
   "scripts": {
     "build": "make build",
     "test": "make test"
