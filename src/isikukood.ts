@@ -9,7 +9,7 @@
  * https://github.com/dknight/Isikukood-js/
  *
  * @author Dmitri Smirnov
- * @copyright 2014-2023
+ * @copyright 2014-2025
  *
  * The License (MIT)
  *
@@ -48,7 +48,7 @@ export default class Isikukood {
   /**
    * Algorithm to get control number.
    */
-  getControlNumber(code = ''): number {
+  getControlNumber(code = ""): number {
     if (!code) {
       code = this.code;
     }
@@ -79,14 +79,10 @@ export default class Isikukood {
    * Validates the Estonian personal ID.
    */
   validate(): boolean {
-    if (this.code.charAt(0) === '0') {
+    if (this.code.charAt(0) === "0" || this.code.length !== 11) {
       return false;
     }
-    if (this.code.length !== 11) {
-      return false;
-    }
-    const control = this.getControlNumber();
-    if (control !== Number(this.code.charAt(10))) {
+    if (this.getControlNumber() !== Number(this.code.charAt(10))) {
       return false;
     }
 
@@ -106,32 +102,34 @@ export default class Isikukood {
    */
   getGender(): Gender {
     const genderNum = this.code.charAt(0);
-    let retval: Gender;
-    switch (genderNum) {
-      case '1':
-      case '3':
-      case '5':
-        retval = Gender.MALE;
-        break;
-      case '2':
-      case '4':
-      case '6':
-        retval = Gender.FEMALE;
-        break;
-      default:
-        retval = Gender.UNKNOWN;
+    const maleDigits = ["1", "3", "5"];
+    const femaleDigits = ["2", "4", "6"];
+    if (maleDigits.includes(genderNum)) {
+      return Gender.MALE;
+    } else if (femaleDigits.includes(genderNum)) {
+      return Gender.FEMALE;
+    } else {
+      return Gender.UNKNOWN;
     }
-    return retval;
   }
 
   /**
    * Get the age of a person in years.
-   * FIXME calculater a leap year. 365.25 is approximate.
    */
   getAge(): number {
-    return Math.floor(
-      (Date.now() - this.getBirthday().getTime()) / (86400 * 1000) / 365.25
-    );
+    const birthDate = this.getBirthday();
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+    if (
+      monthDiff < 0 ||
+      (monthDiff === 0 && today.getDate() < birthDate.getDate())
+    ) {
+      age--;
+    }
+
+    return age;
   }
 
   /**
@@ -140,8 +138,8 @@ export default class Isikukood {
   getBirthday(): Date {
     let year: number = Number(this.code.substring(1, 3));
     const month: number =
-      Number(this.code.substring(3, 5).replace(/^0/, '')) - 1;
-    const day: number = Number(this.code.substring(5, 7).replace(/^0/, ''));
+      Number(this.code.substring(3, 5).replace(/^0/, "")) - 1;
+    const day: number = Number(this.code.substring(5, 7).replace(/^0/, ""));
     const firstNumber: string = this.code.charAt(0);
 
     for (let i = 1, j = 1800; i <= 8; i += 2, j += 100) {
@@ -185,29 +183,29 @@ export default class Isikukood {
     const gender =
       params.gender ||
       (Math.round(Math.random()) === 0 ? Gender.MALE : Gender.FEMALE);
-    let personalId: string = '';
+    let personalId: string = "";
 
     // Places of brith (Estonian Hospitals)
     const hospitals: string[] = [
-      '00', // Kuressaare Haigla (järjekorranumbrid 001 kuni 020)
-      '01', // Tartu Ülikooli Naistekliinik, Tartumaa, Tartu (011...019)
-      '02', // Ida-Tallinna Keskhaigla, Hiiumaa, Keila, Rapla haigla (021...220)
-      '22', // Ida-Viru Keskhaigla (Kohtla-Järve, endine Jõhvi) (221...270)
-      '27', // Maarjamõisa Kliinikum (Tartu), Jõgeva Haigla (271...370)
-      '37', // Narva Haigla (371...420)
-      '42', // Pärnu Haigla (421...470)
-      '47', // Pelgulinna Sünnitusmaja (Tallinn), Haapsalu haigla (471...490)
-      '49', // Järvamaa Haigla (Paide) (491...520)
-      '52', // Rakvere, Tapa haigla (521...570)
-      '57', // Valga Haigla (571...600)
-      '60', // Viljandi Haigla (601...650)
-      '65', // Lõuna-Eesti Haigla (Võru), Pälva Haigla (651...710?)
-      '70', // All other hospitals
-      '95', // Foreigners who are born in Estonia
+      "00", // Kuressaare Haigla (järjekorranumbrid 001 kuni 020)
+      "01", // Tartu Ülikooli Naistekliinik, Tartumaa, Tartu (011...019)
+      "02", // Ida-Tallinna Keskhaigla, Hiiumaa, Keila, Rapla haigla (021...220)
+      "22", // Ida-Viru Keskhaigla (Kohtla-Järve, endine Jõhvi) (221...270)
+      "27", // Maarjamõisa Kliinikum (Tartu), Jõgeva Haigla (271...370)
+      "37", // Narva Haigla (371...420)
+      "42", // Pärnu Haigla (421...470)
+      "47", // Pelgulinna Sünnitusmaja (Tallinn), Haapsalu haigla (471...490)
+      "49", // Järvamaa Haigla (Paide) (491...520)
+      "52", // Rakvere, Tapa haigla (521...570)
+      "57", // Valga Haigla (571...600)
+      "60", // Viljandi Haigla (601...650)
+      "65", // Lõuna-Eesti Haigla (Võru), Pälva Haigla (651...710?)
+      "70", // All other hospitals
+      "95", // Foreigners who are born in Estonia
     ];
 
     if (![Gender.MALE, Gender.FEMALE].includes(gender)) {
-      return '';
+      return "";
     }
 
     if (params.birthYear) {
@@ -242,7 +240,7 @@ export default class Isikukood {
             personalId += String(j);
             break;
           default:
-            return '';
+            return "";
         }
       }
     }
@@ -251,10 +249,10 @@ export default class Isikukood {
     personalId += String(y).substring(2, 4);
 
     // Set the month
-    personalId += String(m).length === 1 ? `0${m}` : `${m}`;
+    personalId += String(m).padStart(2, "0");
 
     // Set the day
-    personalId += String(d).length === 1 ? `0${d}` : `${d}`;
+    personalId += String(d).padStart(2, "0");
 
     // Set the hospital
     personalId += hospitals[Math.floor(Math.random() * hospitals.length)];
@@ -283,7 +281,7 @@ export interface GenerateInput {
 }
 
 export enum Gender {
-  MALE = 'male',
-  FEMALE = 'female',
-  UNKNOWN = 'unknown',
+  MALE = "male",
+  FEMALE = "female",
+  UNKNOWN = "unknown",
 }

@@ -2,9 +2,8 @@ SRC := ./src
 FILE='isikukood.ts'
 DIST := ./dist
 DOCS := ./docs
-ESBUILD := ./node_modules/.bin/esbuild
-JEST := ./node_modules/.bin/jest
-LINT := npx eslint .
+ESBUILD := npx esbuild
+JEST := npx jest
 
 all: test build
 
@@ -31,10 +30,6 @@ isikukood.esm.min.js:
 build: isikukood isikukood.min.js isikukood.esm.js isikukood.esm.min.js
 	cp $(DIST)/isikukood.esm.js $(DOCS)
 
-lint:
-	$(LINT)
-
 test:
-	$(LINT)
 	$(JEST)
 
