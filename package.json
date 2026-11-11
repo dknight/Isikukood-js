@@ -33,11 +33,11 @@
   },
   "homepage": "https://github.com/dknight/Isikukood-js/",
   "devDependencies": {
-    "@types/jest": "^30.0.0",
-    "esbuild": "0.27.1",
-    "ts-jest": "^29.4.6",
-    "typescript": "^5.9.3",
-    "jest": "^30.2.0"
+    "esbuild": "0.28.2",
+    "typescript": "7.0.2",
+    "vitest": "5.1.0"
   },
-  "dependencies": {}
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
 }

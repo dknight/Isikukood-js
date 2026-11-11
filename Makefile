@@ -3,7 +3,7 @@ FILE='isikukood.ts'
 DIST := ./dist
 DOCS := ./docs
 ESBUILD := npx esbuild
-JEST := npx jest
+VITEST := npx vitest run
 
 all: test build
 
@@ -31,5 +31,4 @@ build: isikukood isikukood.min.js isikukood.esm.js isikukood.esm.min.js
 	cp $(DIST)/isikukood.esm.js $(DOCS)
 
 test:
-	$(JEST)
-
+	$(VITEST)

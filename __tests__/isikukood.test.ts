@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import Isikukood, { Gender, PersonalData } from "../src/isikukood";
 /**
  *  Isikukood test suite.
