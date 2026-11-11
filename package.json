@@ -10,7 +10,8 @@
     "test": "test"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=22",
+    "npm": ">=10"
   },
   "scripts": {
     "build": "make build",
