@@ -113,4 +113,4 @@ Any help is appreciated. Found a bug, typo, inaccuracy, etc.? Please do not hesi
 
 ## License
 
-[MIT License](https://mit-license.org/) 2014-2023
+[MIT License](https://mit-license.org/) 2014-2027
