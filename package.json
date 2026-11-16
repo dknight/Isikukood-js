@@ -1,6 +1,6 @@
 {
   "name": "isikukood",
-  "version": "3.4.2",
+  "version": "3.5.0",
   "description": "Estonian personal ID (isikukood) JavaScript module",
   "main": "dist/isikukood.esm.js",
   "module": "dist/isikukood.esm.min.js",
