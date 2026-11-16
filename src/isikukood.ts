@@ -229,6 +229,11 @@ export default class Isikukood {
       d = Math.floor(Math.random() * daysInMonth) + 1;
     }
 
+    const today = new Date();
+    if (!params.birthYear && new Date(y, m - 1, d) > today) {
+      y--;
+    }
+
     // Set the gender
     for (let i = 1800, j = 2; i <= 2100; i += 100, j += 2) {
       if (y >= i && y < i + 100) {

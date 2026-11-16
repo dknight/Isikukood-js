@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import Isikukood, { Gender, PersonalData } from "../src/isikukood";
 /**
  *  Isikukood test suite.
@@ -236,6 +236,16 @@ describe("getAge updated method", () => {
     for (let i = 0; i < 50; i++) {
       const ik: Isikukood = new Isikukood(Isikukood.generate());
       expect(ik.getAge() >= 0).toBe(true);
+    }
+  });
+
+  it("should not generate a future birthday", () => {
+    const random = vi.spyOn(Math, "random").mockReturnValue(0.999);
+    try {
+      const ik = new Isikukood(Isikukood.generate());
+      expect(ik.getAge() >= 0).toBe(true);
+    } finally {
+      random.mockRestore();
     }
   });
 
